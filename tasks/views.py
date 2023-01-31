@@ -13,6 +13,7 @@ def edit_task(request, task_id):
     if request.method == 'POST':
         form_data = request.POST
         task.title = form_data.get('title')
+        task.text = form_data.get('text')
         task.save()
         return redirect("/tasks")
     else:
