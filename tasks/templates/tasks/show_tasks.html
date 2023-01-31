@@ -1,0 +1,15 @@
+{% extends "application.html" %}
+{% block content %}
+    <h1>Tasks</h1>
+    <a href="{{ task_id }}/new/">Incluir</a>
+    {% if tasks %}
+        {% for task in tasks %}
+            <p>{{ task.title }}</p>
+            <p>{{ task.text }}</p>
+            <a href='edit/{{ task.id }}'>Edit |</a>
+            <a href='delete/{{ task.id }}'>Delete</a>
+        {% endfor %}
+        {% else %}
+        <p>Nenhuma task, por favor inclua uma.</p>
+    {% endif %}
+{% endblock content %}

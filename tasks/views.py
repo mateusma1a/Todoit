@@ -29,3 +29,11 @@ def new_task(request, task_id):
         return redirect(f"/tasks/{task_id}")
     else:
         return render(request, 'tasks/new_task.html', {'task_id': task_id})
+    
+def delete_task(request, task_id):
+    task = Todo.objects.get(pk=task_id)
+    if request.method == 'POST':
+        task.delete()
+        return redirect("/")
+    else:
+        return render(request, 'tasks/delete_task.html', {'task': task})
