@@ -14,6 +14,7 @@ def edit_task(request, task_id):
         form_data = request.POST
         task.title = form_data.get('title')
         task.text = form_data.get('text')
+        task.done = form_data.get('done')
         task.save()
         return redirect("/tasks")
     else:
