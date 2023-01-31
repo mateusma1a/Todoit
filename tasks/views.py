@@ -18,17 +18,16 @@ def edit_task(request, task_id):
     else:
         return render(request, 'tasks/edit_tast.html', {'task': task})
     
-def new_task(request, task_id):
+def new_task(request):
     if request.method == 'POST':
         form_data = request.POST
         task = Todo()
         task.title = form_data.get('title')
         task.text = form_data.get('text')
-        task.task_id = task_id
         task.save()
-        return redirect(f"/tasks/{task_id}")
+        return redirect("/")
     else:
-        return render(request, 'tasks/new_task.html', {'task_id': task_id})
+        return render(request, 'tasks/new_task.html')
     
 def delete_task(request, task_id):
     task = Todo.objects.get(pk=task_id)

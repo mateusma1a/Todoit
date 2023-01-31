@@ -1,7 +1,7 @@
 {% extends "application.html" %}
 {% block content %}
     <h1>Tasks</h1>
-    <a href="{{ task_id }}/new/">Incluir</a>
+    <a href="tasks/new/">Incluir</a>
     {% if tasks %}
         {% for task in tasks %}
             <p>{{ task.title }}</p>
